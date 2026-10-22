@@ -1,0 +1,25 @@
+const assert=require('node:assert/strict');
+const {recommend,tackleFor}=require('./empfehlungslogik.js');
+const base={water:'see',fish:'none',insects:[],spot:'unknown',motion:'calm',clarity:'clear',temp:'',line:'unknown',species:'unknown'};
+const go=(mods)=>recommend({...base,...mods});
+let tests=[]; function test(name,fn){try{fn();tests.push([name,'OK']);}catch(e){tests.push([name,'FAILED '+e.message]);}}
+test('See ohne Sicht: Nymphe vor Buzzer, kein harter Tiefenwert',()=>{let r=go({});assert.equal(r.ranked[0],'nymphe');assert.equal(r.keyZone,'Fresszone unbekannt');});
+test('Insekten fliegen nur: nicht trocken',()=>assert.notEqual(go({insects:['flying']}).ranked[0],'trocken'));
+test('Schlupf ohne Fisch: Emerger',()=>assert.equal(go({insects:['hatch']}).ranked[0],'emerger'));
+test('Hatch und Fisch im Film: Emerger',()=>assert.equal(go({fish:'film',insects:['hatch']}).ranked[0],'emerger'));
+test('Trockenfressen + Schlupf: direkte Fischbeobachtung gewinnt',()=>assert.equal(go({fish:'surface',insects:['hatch','flying']}).ranked[0],'trocken'));
+test('Landinsekten am bewachsenen See: Landinsekt',()=>assert.equal(go({insects:['terrestrial'],spot:'overhang'}).ranked[0],'land'));
+test('Beutejagd: Streamer',()=>assert.equal(go({fish:'hunt'}).ranked[0],'streamer'));
+test('Keine Fliegenschnur: keine spezifische Montage',()=>assert.equal(tackleFor('nymphe',base).status,'unknown'));
+test('Sinkende Schnur vs Trockenfliege: Konflikt',()=>assert.equal(tackleFor('trocken',{...base,line:'sinking'}).status,'conflict'));
+test('Floating + Trockenfliege: keine Konflikt',()=>assert.equal(tackleFor('trocken',{...base,line:'floating'}).status,'ok'));
+test('19°C Forellen/Äschen: Warnstopp',()=>assert.equal(go({temp:'19',species:'aesche'}).fishingStop,true));
+test('18°C Forellen: Vorsicht, nicht rechtlicher Stopp',()=>{const r=go({temp:'18',species:'bachforelle'});assert.equal(r.fishingStop,false);assert(r.danger.some(x=>x.level==='caution'));});
+test('Nicht gemessene Temperatur: keine fiktive Zahl',()=>{let r=go({temp:''});assert.equal(r.temperature,null);});
+test('Gewitter: Warnstopp',()=>assert.equal(go({storm:true}).fishingStop,true));
+test('Hochwasser Fluss: Warnstopp',()=>assert.equal(go({water:'fluss',flood:true}).fishingStop,true));
+test('See mit Saibling: keine harte Temperaturzone',()=>{let r=go({species:'saibling'});assert.equal(r.temperature,null);});
+test('Fliessgewässer mit Strömungskante: Nymphe',()=>assert.equal(go({water:'fluss',spot:'run'}).ranked[0],'nymphe'));
+console.log(tests.map(([name,result])=>`${result.padEnd(6)} ${name}`).join('\n'));
+if(tests.some(x=>x[1]!=='OK'))process.exit(1);
+console.log(`\n${tests.length} / ${tests.length} Logiktests erfolgreich.`);

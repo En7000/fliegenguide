@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FliegenGuide V4 – Verbesserter Clinch · korrigierte 3D-Durchführungen</title>
+<style>
+:root{font:15px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#213b35;background:#eef2ec}*{box-sizing:border-box}body{margin:0;padding:18px}main{max-width:1080px;margin:auto;border:1px solid #cddbd1;border-radius:19px;background:white;overflow:hidden;box-shadow:0 12px 36px #1f412018}
+header{background:#20463a;color:white;padding:19px 24px}header small{font-size:10px;letter-spacing:1.5px;color:#b9d9c9;font-weight:800}h1{font-size:23px;letter-spacing:-.6px;margin:5px 0}header p{margin:0;color:#cde5d6;font-size:13px;line-height:1.5}
+.viewer{height:min(59vw,525px);min-height:320px;background:#ecdbb4;position:relative;touch-action:none;cursor:grab;overflow:hidden}.viewer:active{cursor:grabbing}canvas{width:100%;height:100%;display:block}.hint{position:absolute;bottom:12px;right:14px;color:#655b4a;background:#fff9eacc;padding:7px 10px;border-radius:7px;font-size:12px;pointer-events:none}.chips{position:absolute;top:13px;left:13px;display:grid;gap:6px;pointer-events:none}.chip{background:#fff8eadd;color:#284538;padding:7px 10px;border-radius:7px;font-size:12px;font-weight:750;max-width:min(80vw,440px)}
+.panel{padding:18px 23px 23px}.phase{display:flex;align-items:baseline;justify-content:space-between;gap:12px}.phase strong{font-size:18px}.phase span{font-size:12px;color:#577565;white-space:nowrap}.detail{font-size:13px;line-height:1.58;color:#527063;margin:7px 0 13px;min-height:43px}.timeline{width:100%;accent-color:#246f58;cursor:pointer}.times{display:flex;justify-content:space-between;font-size:11px;color:#688174;margin-top:2px}.buttons,.views{display:flex;gap:7px;flex-wrap:wrap;margin:13px 0}.buttons button,.views button,.stages button{cursor:pointer;font:inherit;font-weight:700;font-size:12px;background:#f9fcfa;border:1px solid #cbdad0;color:#285446;border-radius:9px;padding:10px 12px}.buttons button:focus-visible,.views button:focus-visible,.stages button:focus-visible,input:focus-visible{outline:3px solid #80baa2;outline-offset:2px}.buttons .main{background:#26765e;color:white;border-color:#26765e;min-width:135px}.views button.active,.stages button.active{background:#e0efe5;border-color:#2f8664;color:#164d38}.subhead{font-size:11px;font-weight:800;letter-spacing:1.1px;color:#607b6d;margin-top:19px;margin-bottom:6px}.stages{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}.stages button{padding:10px 5px;min-width:0;font-size:11px;line-height:1.3}.stages button b{display:block;font-size:16px;margin-bottom:4px}.callout{margin-top:13px;padding:11px 13px;border-radius:9px;background:#eaf2eb;color:#325b47;font-size:12px;line-height:1.5}.legend{display:flex;flex-wrap:wrap;gap:14px;margin:14px 0 5px;color:#576d62;font-size:12px}.legend i{display:inline-block;width:18px;height:5px;margin-right:5px;vertical-align:middle;border-radius:5px}.foot{border-top:1px solid #e0e9e2;margin-top:17px;padding-top:12px;color:#667c70;font-size:12px;line-height:1.6}.foot a{color:#175e47}
+@media(max-width:550px){body{padding:0}main{border:0;border-radius:0}.viewer{height:355px;min-height:355px}.panel{padding:13px}.stages{gap:3px}.stages button{font-size:9px;padding:10px 2px}.stages button b{font-size:14px}.phase strong{font-size:16px}.hint{font-size:10px}header{padding:14px 16px}}
+</style></head><body><main>
+<header><small>FLIEGENGUIDE V4 · RUBRIK 5 · 3D-KNOTEN</small><h1>Verbesserter Clinch – Test ab dem ersten Handgriff</h1><p>Fünf Windungen und beide Schlaufen-Durchführungen – Schritt für Schritt in 3Dührungen · frei drehen und langsam prüfen</p></header>
+<div class="viewer" id="viewer"><canvas id="scene" aria-label="Drehbarer dreidimensionaler Schnurverlauf des verbesserten Clinch-Knotens"></canvas><div class="chips"><div class="chip" id="counter">0 / 5 Wicklungen</div><div class="chip" id="angle">3D schräg</div><div class="chip" id="gate">Öse einfädeln</div></div><div class="hint">↻ Ziehen = drehen · Mausrad = zoomen</div></div>
+<div class="panel"><div class="phase"><strong id="title">1. Schnur durch die Öse</strong><span id="stepnum">1 von 6</span></div><p class="detail" id="description">Die Schnur wird von der Hauptschnur aus durch das Hakenöhr geführt.</p>
+<input class="timeline" id="scrub" type="range" min="0" max="600" value="0" step="1" aria-label="Knotenablauf schrittweise vor- oder zurückspulen"><div class="times"><span>Einfädeln</span><span>Wickeln</span><span>Schlaufe 1</span><span>Schlaufe 2</span><span>Anziehen</span></div>
+<div class="buttons"><button class="main" id="play">▶ Abspielen</button><button id="prev">◀ Schritt</button><button id="next">Schritt ▶</button><button id="speed">0,5× Tempo</button><button id="reset">↺ Zurück</button></div>
+<div class="subhead">BINDESCHRITTE</div><div class="stages" id="steps"><button data-step="0" class="active"><b>1</b>Öse</button><button data-step="1"><b>2</b>5 Windungen</button><button data-step="2"><b>3</b>Kleine Schlaufe</button><button data-step="3"><b>4</b>Grosse Schlaufe</button><button data-step="4"><b>5</b>Kontrolle</button><button data-step="5"><b>6</b>Anziehen</button></div>
+<div class="subhead">KAMERAPERSPEKTIVE</div><div class="views" id="views"><button data-view="front">Vorne</button><button data-view="back">Hinten</button><button data-view="left">Links</button><button data-view="right">Rechts</button><button data-view="top">Oben</button><button data-view="bottom">Unten</button><button data-view="iso" class="active">3D schräg</button></div>
+<div class="legend"><span><i style="background:#1c6699"></i>Stehende Schnur</span><span><i style="background:#00a9cb"></i>Durchgehender Schnurverlauf</span><span><i style="background:#f3943f"></i>Bewegtes Ende</span><span><i style="background:#34383b"></i>Hakenöhr</span></div>
+<div class="callout" id="note">Prüfe Schritt 3 und 4 von vorne UND von hinten: Das Ende tritt erst durch die kleine Öffnung am Öhr und danach durch die grosse, neu entstandene Schlaufe.</div>
+<div class="foot"><strong>Entwicklungsstand:</strong> Die beiden Durchführungen sind getrennt modelliert und ändern beim Kameradrehen ihre tatsächliche Tiefenlage. Das Festziehen ist weiterhin eine geometrische Annäherung und <strong>noch keine physikalisch oder durch Belastung geprüfte Knotensimulation</strong>. Der fertige Knoten ist deshalb vor einer Veröffentlichung mit einem real gebundenen Vergleichsknoten zu kontrollieren. Quellen: <a href="https://www.animatedknots.com/improved-clinch-knot" target="_blank" rel="noopener">Animated Knots</a>, <a href="https://www.netknots.com/fishing_knots/improved-clinch-knot" target="_blank" rel="noopener">NetKnots</a>. Keine GitHub-Änderungen.</div>
+</div></main>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id),canvas=$('scene'),gl=canvas.getContext('webgl',{antialias:true,alpha:false,depth:true})||canvas.getContext('experimental-webgl');
+const ctx=gl?null:canvas.getContext('2d'); if(!gl){$('note').textContent='WebGL ist hier nicht verfügbar. Die frei drehbare 3D-Projektion wird stattdessen auf Canvas dargestellt.';}
+const vertex=`attribute vec3 a_position;attribute vec3 a_normal;attribute vec3 a_color;uniform float u_yaw,u_pitch,u_aspect,u_zoom,u_focus;varying vec3 v_color;varying float v_light;void main(){float cy=cos(u_yaw),sy=sin(u_yaw),cp=cos(u_pitch),sp=sin(u_pitch);vec3 focusPosition=a_position+vec3(2.5*u_focus,0.0,0.0);vec3 q=vec3(cy*focusPosition.x-sy*focusPosition.z,focusPosition.y,sy*focusPosition.x+cy*focusPosition.z);vec3 r=vec3(q.x,cp*q.y-sp*q.z,sp*q.y+cp*q.z);vec3 n=vec3(cy*a_normal.x-sy*a_normal.z,a_normal.y,sy*a_normal.x+cy*a_normal.z);n=vec3(n.x,cp*n.y-sp*n.z,sp*n.y+cp*n.z);float scale=3.20/u_zoom;gl_Position=vec4((r.x+.1)/(scale*u_aspect),r.y/scale,-r.z/10.0,1.0);v_color=a_color;v_light=.46+.54*max(0.0,dot(normalize(n),normalize(vec3(-.4,.85,.55))));}`;
+const frag=`precision mediump float;varying vec3 v_color;varying float v_light;void main(){gl_FragColor=vec4(v_color*v_light,1.0);}`;
+function shader(type,source){const s=gl.createShader(type);gl.shaderSource(s,source);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(s));return s;}
+let prog,posLoc,normalLoc,colorLoc,yawLoc,pitchLoc,aspectLoc,zoomLoc,focusLoc,vb;
+if(gl){
+prog=gl.createProgram();gl.attachShader(prog,shader(gl.VERTEX_SHADER,vertex));gl.attachShader(prog,shader(gl.FRAGMENT_SHADER,frag));gl.linkProgram(prog);if(!gl.getProgramParameter(prog,gl.LINK_STATUS))throw new Error(gl.getProgramInfoLog(prog));gl.useProgram(prog);
+posLoc=gl.getAttribLocation(prog,'a_position');normalLoc=gl.getAttribLocation(prog,'a_normal');colorLoc=gl.getAttribLocation(prog,'a_color');yawLoc=gl.getUniformLocation(prog,'u_yaw');pitchLoc=gl.getUniformLocation(prog,'u_pitch');aspectLoc=gl.getUniformLocation(prog,'u_aspect');zoomLoc=gl.getUniformLocation(prog,'u_zoom');focusLoc=gl.getUniformLocation(prog,'u_focus');vb=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,vb);gl.enableVertexAttribArray(posLoc);gl.enableVertexAttribArray(normalLoc);gl.enableVertexAttribArray(colorLoc);
+}
+const V=(x,y,z)=>[x,y,z],add=(a,b)=>[a[0]+b[0],a[1]+b[1],a[2]+b[2]],sub=(a,b)=>[a[0]-b[0],a[1]-b[1],a[2]-b[2]],mul=(a,t)=>[a[0]*t,a[1]*t,a[2]*t],norm=(a)=>{const d=Math.hypot(...a)||1;return mul(a,1/d)},cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]], mix=(a,b,t)=>a+(b-a)*t,lerp=(a,b,t)=>a.map((v,i)=>mix(v,b[i],t));
+const bend=(p0,p1,p2,p3,t)=>{const k=1-t;return p0.map((a,i)=>k*k*k*a+3*k*k*t*p1[i]+3*k*t*t*p2[i]+t*t*t*p3[i]);};
+const bez=(a,b,c,d,n)=>Array.from({length:n+1},(_,i)=>bend(a,b,c,d,i/n));
+function spline(points,N){let out=[];for(let i=0;i<points.length-1;i++){let a=points[Math.max(0,i-1)],b=points[i],c=points[i+1],d=points[Math.min(points.length-1,i+2)];for(let j=0;j<(i===points.length-2?N+1:N);j++){const t=j/N,t2=t*t,t3=t2*t;const v=b.map((x,k)=>.5*((2*x)+(-a[k]+c[k])*t+(2*a[k]-5*x+4*c[k]-d[k])*t2+(-a[k]+3*x-3*c[k]+d[k])*t3));out.push(v)}}return out;}
+function partJoin(...parts){const out=[];parts.forEach((p,j)=>out.push(...(j?p.slice(1):p)));return out;}
+const ring=[];for(let i=0;i<=100;i++){const a=2*Math.PI*i/100;ring.push(V(-3.38+.30*Math.cos(a),.30*Math.sin(a),0));}
+const standing=[];for(let i=0;i<=160;i++){const t=i/160;standing.push(V(mix(-3.38,3.7,t),mix(0,.20,t),mix(0,.24,t)));}
+// The tag-side centerline is one continuous curve. All segment joins use the same endpoint.
+function build(taut){
+const t=taut;const eyeStart=V(-3.38,0,0);
+const coilStart=lerp(V(-2.15,-.22,.24),V(-3.07,-.075,.045),t);
+const coilEnd=lerp(V(1.20,-.22,.24),V(-2.37,-.075,.045),t);
+const eway=[eyeStart,lerp(V(-3.28,-.17,-.32),V(-3.32,-.035,-.12),t),lerp(V(-3.06,-.52,-.43),V(-3.19,-.09,-.13),t),lerp(V(-2.69,-.57,-.21),V(-3.10,-.11,-.06),t),lerp(V(-2.33,-.42,-.05),V(-3.085,-.082,-.005),t),coilStart];
+const a=spline(eway,22);
+const r=mix(.42,.105,t),cx=mix(-2.15,-3.07,t),ex=mix(1.20,-2.37,t);const coil=[];
+for(let i=0;i<=440;i++){const f=i/440,phi=Math.PI+f*10*Math.PI;coil.push(V(mix(cx,ex,f),mix(.20,.03,t)+r*Math.cos(phi),mix(.24,.045,t)+r*Math.sin(phi)));}
+// At the eye the small-loop opening is between the standing line and the line returning from the eye.
+const smpre=lerp(V(-2.73,-.21,-.81),V(-3.11,-.09,-.14),t);
+const smmid=lerp(V(-2.70,-.20,-.05),V(-3.11,-.06,.02),t);
+const smpost=lerp(V(-2.68,-.12,.73),V(-3.11,-.07,.19),t);
+const returnPoints=[coilEnd,lerp(V(1.52,-.55,.10),V(-2.32,-.12,-.12),t),lerp(V(1.68,-1.05,-.64),V(-2.48,-.16,-.18),t),lerp(V(.43,-1.16,-.93),V(-2.72,-.12,-.20),t),lerp(V(-1.28,-1.04,-.95),V(-2.98,-.105,-.18),t),smpre,smmid,smpost];
+const ret=spline(returnPoints,24);
+// A separate arch is built from the small-loop exit before we cross the large window.
+const bigEnter=lerp(V(-.15,-.25,.78),V(-2.70,-.02,.18),t);
+const bigMid=lerp(V(-.23,-.28,-.04),V(-2.72,-.06,-.01),t);
+const bigExit=lerp(V(-.24,-.38,-.90),V(-2.75,-.105,-.16),t);
+const tagEnd=lerp(V(-.75,-.68,-1.28),V(-3.13,-.28,-.23),t);
+const finish=[smpost,lerp(V(-2.40,.48,.89),V(-3.06,.14,.22),t),lerp(V(-1.00,.96,.93),V(-2.95,.15,.24),t),lerp(V(.38,.74,.91),V(-2.78,.09,.23),t),bigEnter,bigMid,bigExit,lerp(V(-.38,-.56,-1.09),V(-2.91,-.13,-.21),t),tagEnd];
+const fin=spline(finish,23);
+const all=partJoin(a,coil,ret,fin);
+const joinPositions=[a.length-1,a.length+coil.length-2,a.length+coil.length+ret.length-3];
+for(const k of joinPositions){if(k>3&&k<all.length-4){const before=all.map(v=>v.slice());for(let j=k-4;j<=k+4;j++){const w=(4-Math.abs(j-k))/20;all[j]=lerp(before[j],mul(add(before[j-1],before[j+1]),.5),w);}}}
+return {a,coil,ret,fin,all,lens:[a.length,coil.length,ret.length,fin.length],small:[smpre,smmid,smpost],big:[bigEnter,bigMid,bigExit],tip:tagEnd};
+}
+const loose=build(0),tight=build(1);
+if(loose.all.length!==tight.all.length)throw Error('Unequal centerline sampling');
+let time=0,playing=false,speed=.5,yaw=.42,pitch=.30,zoom=1,last=0,frameID=0,viewText='3D schräg';const dur=[4.2,12,7.5,7.5,.6,10.5];
+function visible(){const step=Math.min(5,Math.floor(time)),frac=Math.min(1,time-step);const [A,B,C,D]=loose.lens;let n=0;if(step===0)n=Math.round((A-1)*frac)+1;else if(step===1)n=A+Math.round((B-1)*frac);else if(step===2)n=A+B+Math.round((C-1)*frac);else if(step===3)n=A+B+C+Math.round((D-1)*frac);else n=loose.all.length;const taut=step===5?frac*frac*(3-2*frac):0;const pts=loose.all.slice(0,n).map((v,i)=>lerp(v,tight.all[i],taut));return {step,frac,n,pts,taut};}
+function tube(points,rgb,radius=.043,addCap=true){if(points.length<2)return [];const out=[],R=10;let rings=[];for(let i=0;i<points.length;i++){const tangent=norm(sub(points[Math.min(points.length-1,i+1)],points[Math.max(0,i-1)]));let ax=Math.abs(tangent[2])<.86?V(0,0,1):V(0,1,0);let b=norm(cross(tangent,ax)),c=norm(cross(tangent,b));let pts=[];for(let j=0;j<=R;j++){let phi=2*Math.PI*j/R;const N=add(mul(b,Math.cos(phi)),mul(c,Math.sin(phi)));pts.push({p:add(points[i],mul(N,radius)),n:N});}rings.push(pts);}function emit(v){out.push(...v.p,...v.n,...rgb);}for(let i=0;i<rings.length-1;i++){for(let j=0;j<R;j++){const a=rings[i][j],b=rings[i+1][j],c=rings[i+1][j+1],d=rings[i][j+1];emit(a);emit(b);emit(c);emit(a);emit(c);emit(d)}}return out;}
+function drawRopes(){const m=visible();let floats=[];function addTube(pts,c,r){if(!gl)return;const arr=tube(pts,c,r);for(let i=0;i<arr.length;i++)floats.push(arr[i]);}
+addTube(ring,[.24,.27,.29],.065);addTube(standing,[.10,.42,.65],.042);
+if(m.pts.length>1){addTube(m.pts,[.00,.62,.76],.043);
+const activeLength= Math.max(0,Math.min(45,m.pts.length-1));if(m.step<4&&activeLength>0)addTube(m.pts.slice(-activeLength),[1.0,.52,.16],.052);
+const lastPoint=m.pts[m.pts.length-1];const tipSphere=[];const W=12,Q=10;
+for(let i=0;i<Q;i++){const phi0=Math.PI*i/Q,phi1=Math.PI*(i+1)/Q;for(let j=0;j<W;j++){const th0=2*Math.PI*j/W,th1=2*Math.PI*(j+1)/W;const sph=(p,t)=>[Math.sin(p)*Math.cos(t),Math.cos(p),Math.sin(p)*Math.sin(t)];const a=sph(phi0,th0),b=sph(phi1,th0),c=sph(phi1,th1),d=sph(phi0,th1);for(const n of [a,b,c,a,c,d]){tipSphere.push(...add(lastPoint,mul(n,.083)),...n,1,.70,.27);}}}
+if(gl)for(let i=0;i<tipSphere.length;i++)floats.push(tipSphere[i]);
+}
+if(gl){
+gl.viewport(0,0,canvas.width,canvas.height);gl.clearColor(.935,.877,.727,1);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);gl.enable(gl.DEPTH_TEST);gl.depthFunc(gl.LEQUAL);gl.disable(gl.CULL_FACE);gl.bindBuffer(gl.ARRAY_BUFFER,vb);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(floats),gl.DYNAMIC_DRAW);
+const stride=36;gl.vertexAttribPointer(posLoc,3,gl.FLOAT,false,stride,0);gl.vertexAttribPointer(normalLoc,3,gl.FLOAT,false,stride,12);gl.vertexAttribPointer(colorLoc,3,gl.FLOAT,false,stride,24);
+gl.uniform1f(yawLoc,yaw);gl.uniform1f(pitchLoc,pitch);gl.uniform1f(aspectLoc,canvas.width/canvas.height);gl.uniform1f(zoomLoc,zoom*(1+1.2*(m.step===5?m.taut:0)));gl.uniform1f(focusLoc,m.step===5?m.taut:0);gl.drawArrays(gl.TRIANGLES,0,floats.length/9);
+}else{
+const W=canvas.width,H=canvas.height,focus=m.step===5?m.taut:0,base=Math.min(W/9.4,H/4.9)*zoom*(1+1.2*focus);
+ctx.clearRect(0,0,W,H);ctx.fillStyle='#eddfb9';ctx.fillRect(0,0,W,H);
+function proj(q){q=[q[0]+2.5*focus,q[1],q[2]];let cy=Math.cos(yaw),sy=Math.sin(yaw),cp=Math.cos(pitch),sp=Math.sin(pitch);let a=cy*q[0]-sy*q[2],z=sy*q[0]+cy*q[2],y=cp*q[1]-sp*z,depth=sp*q[1]+cp*z;return {x:W/2+(a+.12)*base,y:H/2-y*base,z:depth}}
+const ropes=[{pts:ring,color:'#3b4042',wide:7},{pts:standing,color:'#1c6699',wide:5.5},{pts:m.pts,color:'#00a9c9',wide:5.7}];
+if(m.pts.length>1&&m.step<4)ropes.push({pts:m.pts.slice(-45),color:'#f3943f',wide:6.2});
+const segments=[];for(const rope of ropes){for(let i=1;i<rope.pts.length;i++){const a=proj(rope.pts[i-1]),b=proj(rope.pts[i]);segments.push({a,b,depth:(a.z+b.z)/2,color:rope.color,wide:rope.wide});}}
+segments.sort((a,b)=>a.depth-b.depth);
+for(const q of segments){ctx.lineWidth=q.wide*Math.min(1.4,Math.max(.65,base/95));ctx.lineCap='round';ctx.strokeStyle=q.color;ctx.beginPath();ctx.moveTo(q.a.x,q.a.y);ctx.lineTo(q.b.x,q.b.y);ctx.stroke();}
+if(m.pts.length){const tip=proj(m.pts[m.pts.length-1]);ctx.fillStyle='#fff3d0';ctx.strokeStyle='#e28b42';ctx.lineWidth=3;ctx.beginPath();ctx.arc(tip.x,tip.y,Math.max(4,base*.07),0,Math.PI*2);ctx.fill();ctx.stroke();}
+}
+return m;}
+const steps=[
+['Anfang: freie Schnur durch die Öse','Noch kein Knoten: Der freie Faden kommt erst jetzt durch das Hakenöhr.'],
+['Fünf Wicklungen','Fünf vollständige, nacheinander sichtbare Windungen um die stehende Schnur.'],
+['Durch die kleine Schlaufe','Das Schnurende kommt vom Ende der Windungen zurück zur kleinen Öffnung direkt am Hakenöhr: von der Rückseite durch die Öffnung nach vorne.'],
+['Durch die grosse Schlaufe','Nach Schritt 3 wird der freie Faden in einem weiten Bogen geführt und anschliessend durch die neu entstandene grosse Schlaufe hindurch auf die andere Seite gesteckt.'],
+['Beide Durchführungen prüfen','Jetzt sind BEIDE Durchführungen vorhanden. Durch Drehen kannst du prüfen, wo die Schnur jeweils vor und hinter der Schlaufe verläuft.'],
+['Vorsichtig anziehen','Zuerst die Wicklungen schliessen, dann das Paket bis an die Öse führen. Der Endzustand ist geometrisch angenähert und wird noch mit einer realen Bindung abgeglichen.']
+];
+function redraw(){const m=drawRopes(),step=m.step,frac=m.frac;$('title').textContent=playing?'Verbesserter Clinch · durchgehende Animation':(step+1)+'. '+steps[step][0];$('description').textContent=steps[step][1];$('stepnum').textContent='Schritt '+(step+1)+' von 6';$('counter').textContent=(step===1?Math.floor(frac*5+1e-7):step>1?5:0)+' / 5 Wicklungen';$('angle').textContent=viewText;
+$('gate').textContent=playing?'Schnurführung · durchgehender Ablauf':step===2?'Kleine Schlaufe prüfen':step===3?'Grosse Schlaufe prüfen':step===5?'Endzustand prüfen':'Schnurverlauf verfolgen';$('scrub').value=Math.round(time*100);
+$('play').textContent=playing?'Ⅱ Pause':'▶ Abspielen';document.querySelectorAll('[data-step]').forEach(b=>b.classList.toggle('active',Number(b.dataset.step)===step));
+if(step===2)$('note').textContent='KLEINE SCHLAUFE: Der orange markierte Endabschnitt geht auf der Ösenseite von hinten nach vorne durch die enge Öffnung. Drehe auf „Hinten“ und „Vorne“.';
+else if(step===3)$('note').textContent='GROSSE SCHLAUFE: Das Ende wird danach von der Vorderseite in einem zweiten, räumlich getrennten Durchgang zurück durch das grosse Fenster geführt. Prüfe mit „Oben“ und „3D schräg“.';
+else if(step===5)$('note').textContent='Das Festziehen bleibt ein geometrisch modellierter Übergang; die realen Zugspannungen werden nicht berechnet. Nicht als geprüfte Knotenanleitung verwenden.';
+else $('note').textContent='Für die Prüfung eignen sich besonders Schritt 3 und 4: Die Animation bildet sie als zwei unterschiedliche räumliche Durchführungen ab.';
+}
+function resize(){const box=$('viewer').getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(box.width*dpr);canvas.height=Math.round(box.height*dpr);redraw();}
+function stop(){playing=false;if(frameID)cancelAnimationFrame(frameID);frameID=0;last=0;redraw();}
+function tick(ts){if(!playing)return;if(!last)last=ts;let delta=Math.min(.075,(ts-last)/1000);last=ts;let j=Math.min(5,Math.floor(time));time=Math.min(5.999999,time+delta*speed/dur[j]);if(time>5.999){stop();return}redraw();frameID=requestAnimationFrame(tick);}
+function go(x){stop();time=Math.max(0,Math.min(5.999999,x));redraw();}
+$('play').onclick=()=>{if(playing){stop();return}if(time>=5.99)time=0;playing=true;last=0;redraw();frameID=requestAnimationFrame(tick);};$('prev').onclick=()=>go(Math.max(0,Math.floor(time)-1));$('next').onclick=()=>go(Math.min(5,Math.floor(time)+1));$('reset').onclick=()=>go(0);
+$('speed').onclick=()=>{speed=speed===.5?1:speed===1?.25:.5;$('speed').textContent=(speed===.25?'0,25':speed===.5?'0,5':'1')+'× Tempo';};$('scrub').oninput=e=>go(Number(e.target.value)/100);document.querySelectorAll('[data-step]').forEach(b=>b.onclick=()=>go(Number(b.dataset.step)));
+const angles={front:[0,0],back:[Math.PI,0],left:[-Math.PI/2,0],right:[Math.PI/2,0],top:[0,Math.PI/2-.002],bottom:[0,-Math.PI/2+.002],iso:[.42,.30]};
+document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>{const q=angles[b.dataset.view];yaw=q[0];pitch=q[1];viewText=b.textContent;document.querySelectorAll('[data-view]').forEach(x=>x.classList.toggle('active',x===b));redraw();});
+let tracking=null,px=0,py=0;const v=$('viewer');v.addEventListener('pointerdown',e=>{if(tracking!==null)return;tracking=e.pointerId;px=e.clientX;py=e.clientY;v.setPointerCapture(e.pointerId)});v.addEventListener('pointermove',e=>{if(e.pointerId!==tracking)return;const dx=e.clientX-px,dy=e.clientY-py;px=e.clientX;py=e.clientY;yaw+=dx*.010;pitch=Math.max(-1.55,Math.min(1.55,pitch+dy*.010));viewText='Frei gedreht';document.querySelectorAll('[data-view]').forEach(b=>b.classList.remove('active'));redraw();});v.addEventListener('pointerup',e=>{if(e.pointerId===tracking)tracking=null});v.addEventListener('pointercancel',e=>{if(e.pointerId===tracking)tracking=null});v.addEventListener('wheel',e=>{e.preventDefault();zoom=Math.max(.55,Math.min(2.8,zoom*(e.deltaY<0?1.09:.91)));redraw();},{passive:false});window.addEventListener('resize',resize);resize();
+})();
+</script></body></html>

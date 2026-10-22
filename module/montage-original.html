@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#112b32">
+<title>FliegenGuide V4 – Rubrik 4 · Schnur & Hakengrösse</title>
+<style>
+:root{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#e7f0ed;background:#0d2229;--panel:#17313a;--panel2:#1e3a42;--text:#e7f0ed;--muted:#a9c0c4;--border:#36525a;--accent:#74d4b2;--gold:#efb765;--danger:#ffa79c;--warn:#ffd08b}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:linear-gradient(160deg,#153b45,#0d2229 310px);line-height:1.45}header,main,footer{max-width:770px;margin:auto;padding-left:17px;padding-right:17px}header{padding-top:calc(24px + env(safe-area-inset-top));padding-bottom:14px}.eyebrow{text-transform:uppercase;letter-spacing:.13em;font-size:11px;color:#95d9be;font-weight:750}h1{font-size:29px;line-height:1.12;letter-spacing:-.6px;margin:8px 0 8px}h2{font-size:20px;margin:0 0 8px}h3{font-size:15px;margin:0 0 8px}p{margin:5px 0 10px}small,.muted{color:var(--muted)}.top-note{color:#c1d5d7;font-size:13px}.card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:17px;margin-bottom:15px;box-shadow:0 5px 20px #050d1040}.card.alt{background:#1e3a42}.desc{color:#b8cdd0;font-size:13px}.flex{display:flex;align-items:center;justify-content:space-between;gap:10px}.status{display:inline-flex;align-items:center;gap:5px;font-size:11px;border:1px solid #50756f;border-radius:20px;background:#204840;color:#a8f0cd;padding:3px 9px}.label{display:block;font-size:12px;font-weight:720;color:#bbd0d4;margin:11px 0 5px}select,input[type=number]{width:100%;min-width:0;appearance:none;border:1px solid #52727a;background:#112b32;color:#eff8f7;border-radius:11px;padding:12px 11px;font-size:16px;outline:none}select:focus,input:focus{border-color:#85d9ba;box-shadow:0 0 0 2px #85d9ba44}select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23a6c7c6' stroke-width='2' d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-position:right 8px center;background-repeat:no-repeat;background-size:18px;padding-right:28px}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 10px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.grid3>div{border:1px solid #41616a;background:#102a31;padding:11px 6px;border-radius:12px;text-align:center}.grid3 strong{font-size:20px;display:block}.grid3 small{font-size:11px;display:block}.under{font-size:11px;color:#bfd4d3}.numline{display:flex;gap:8px;align-items:center}.numline input{flex:1}.numline span{font-size:13px;color:#a8c5c3}.selector{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:10px 0}.selector button{border:1px solid #517178;border-radius:10px;background:#122d35;color:#d6e6e3;padding:12px 2px;font-size:12px;font-weight:650}.selector button.active{color:#08231d;background:#90dbba;border-color:#90dbba}.rate{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:end}.rate >div:last-child{font-variant-numeric:tabular-nums;color:#b9dfd2;font-size:13px;padding-bottom:12px}.progress{height:10px;border-radius:99px;background:linear-gradient(90deg,#e6b875 0%,#e6b875 30%,#87cbd5 30%,#87cbd5 78%,#e8e5bf 78%);margin:14px 0 5px}.legend{display:flex;justify-content:space-between;color:#aabfc3;font-size:11px}.rigline{width:100%;height:70px;display:block}.line-label{fill:#bad5d6;font-size:11px}.subtitle{font-size:15px;font-weight:700;color:#e7f4ec;margin-top:12px}.pill{display:inline-block;border-radius:30px;border:1px solid #6e8f91;color:#d4e5e4;padding:2px 9px;margin:3px 4px 4px 0;font-size:11px}.note{border-left:3px solid #90dcb6;padding:10px 12px;margin:10px 0;background:#16433e77;border-radius:6px;color:#d0e8df;font-size:12px}.msg{display:flex;gap:10px;border-radius:11px;padding:12px;margin-top:8px;border:1px solid #527078;background:#183039}.msg strong{display:block;font-size:13px}.msg p{font-size:12px;margin:4px 0 0;color:#c5dad8}.msg .mark{font-weight:bold;font-size:17px;line-height:1.2}.msg.error{border-color:#996156;background:#42292c}.msg.error .mark{color:var(--danger)}.msg.warn{border-color:#8a764a;background:#403b2c}.msg.warn .mark{color:var(--warn)}.msg.ok{border-color:#4e8a73;background:#183c37}.msg.ok .mark{color:#a3e9c5}details summary{cursor:pointer;font-size:14px;font-weight:730;color:#c9eee4;padding:7px 0;list-style-position:inside}details[open] summary{margin-bottom:8px}.divider{border:none;border-top:1px solid #3c5b62;margin:17px 0 12px}.hint{font-size:11px;color:#b6c9ca}.btn{display:inline-block;border-radius:10px;border:1px solid #8fdbb8;background:#82d4af;padding:12px 14px;font-weight:800;font-size:14px;color:#0d2c29;cursor:pointer}.btn.secondary{background:transparent;color:#d6f0e4}.btn:active{transform:translateY(1px)}.fieldLabel{display:flex;align-items:center;gap:8px;color:#c9d9d9;font-size:13px}.fieldLabel input{accent-color:#8ad9b6;width:18px;height:18px}.hide{display:none!important}footer{padding-top:10px;padding-bottom:38px;color:#a4babf;font-size:12px}a{color:#bceadb}button{cursor:pointer}.inline-total{font-size:12px;color:#bbd7d5;text-align:center;margin-top:8px}#typeHelp{margin-top:7px}.knotstrip{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;margin-top:13px;text-align:center}.knotstrip span{padding:8px 2px;font-size:11px;border-radius:7px;background:#203c42}.chip{background:#33574f;color:#bcf5dc;border-radius:99px;padding:3px 10px;font-size:11px;font-weight:700}#hookRange{font-size:13px;color:#d2e9e0}.footerline{margin-bottom:8px}#readonlyContext{border:1px solid #4f666a;padding:9px 10px;border-radius:10px;color:#c1d6d4;font-size:12px;margin-bottom:8px}
+@media(max-width:385px){.grid3 strong{font-size:17px}.grid3 small{font-size:10px}.card{padding:13px}.selector button{font-size:10px;padding:11px 0}.grid2{gap:0 7px}}
+@media(min-width:650px){header,main,footer{padding-left:25px;padding-right:25px}h1{font-size:35px}}
+
+/* V4.2 – Schnurtyp-Auswahl mit interaktiven Grafikkarten */
+.line-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin:10px 0 12px}
+.line-option{display:block;position:relative;min-width:0;padding:8px;text-align:left;border:1.5px solid #52717a;border-radius:15px;background:#102b34;color:var(--text);box-shadow:0 4px 10px #050d1025;transition:border-color .13s,background-color .13s,box-shadow .13s}
+.line-option:hover{border-color:#92cbbc;background:#173a40}
+.line-option.active{border:2px solid #87e3b8;background:#1d4b45;box-shadow:0 0 0 2px #87e3b82d,0 6px 18px #040f1280;padding:7.5px}
+.line-option:focus-visible{outline:3px solid #ffde96;outline-offset:3px}
+.line-illustration{display:block;width:100%;border-radius:9px;overflow:hidden;background:#11313c;line-height:0}
+.line-illustration svg{display:block;width:100%;height:auto;aspect-ratio:320/150}
+.line-card-bottom{display:flex;gap:6px;align-items:flex-start;justify-content:space-between;padding:10px 3px 5px}
+.line-card-copy{display:flex;min-width:0;flex:1;flex-direction:column;gap:3px}
+.line-card-copy strong{font-size:16px;line-height:1.17;letter-spacing:-.25px}
+.line-card-copy small{font-size:11px;color:#b8d3d7;line-height:1.24}
+.line-card-explain{font-size:11px;color:#b5c9cc;line-height:1.32;margin-top:4px}
+.line-check{flex:0 0 23px;height:23px;width:23px;text-align:center;border-radius:50%;background:#294951;border:1.5px solid #708990;color:transparent;font-size:14px;line-height:19px;font-weight:800}
+.line-option.active .line-check{color:#0d362c;background:#8be2bc;border-color:#8be2bc}
+.line-option.active .line-card-copy strong{color:#b8ffe1}
+.line-hint{margin:0 0 12px}
+@media(max-width:380px){.line-gallery{gap:8px}.line-option{padding:6px}.line-option.active{padding:5.5px}.line-card-bottom{padding:8px 2px 4px}.line-card-copy strong{font-size:14px}.line-card-copy small,.line-card-explain{font-size:10px}.line-check{width:19px;height:19px;flex-basis:19px;line-height:16px}}
+@media(prefers-reduced-motion:reduce){.line-option{transition:none}}
+
+@media(max-width:420px){.card.alt .grid2{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header><div class="eyebrow">FliegenGuide V4 · Vorfach-Berater · Offline-Testversion</div><h1>Montage &<br>Ausrüstung</h1><p class="top-note">Fliegenschnurtyp, Schnurklasse und Hakengrösse direkt wählen. Weitere bekannte Bedingungen im Hintergrund übernehmen.</p><span class="status">● GitHub unverändert · lokaler Prototyp</span></header>
+<main>
+<section class="card"><div class="flex"><h2>1. Schnurtyp</h2><span class="chip">Einfluss auf Vorfach</span></div><p class="desc">Die Schnurart ist für die Vorfachlänge wichtig, besonders bei sinkenden Schnüren. In V4 kommt deine Auswahl automatisch aus «Am Wasser». Für diesen Test kannst du die Grafik antippen.</p>
+<div class="label" id="lineTypeLabel">Fliegenschnur auswählen – direkt auf die Grafik tippen</div>
+<div class="line-gallery" id="lineBtns" role="group" aria-labelledby="lineTypeLabel"><button class="line-option" data-line="floating" type="button" aria-pressed="false"><span class="line-illustration"><svg aria-hidden="true" viewBox="0 0 320 150" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"><rect width="320" height="150" rx="14" fill="#102b36"/><rect y="48" width="320" height="102" fill="#185572" fill-opacity=".58"/><path d="M0 47 Q17 44 34 47 T68 47 T102 47 T136 47 T170 47 T204 47 T238 47 T272 47 T320 47" fill="none" stroke="#70c9da" stroke-width="2" opacity=".87"/><path d="M0 74 H320 M0 110 H320" stroke="#87c0d0" stroke-width=".8" stroke-dasharray="4 9" opacity=".22"/><path d="M15 23 H46" stroke="#ebc77a" stroke-width="1.5" stroke-linecap="round" opacity=".55"/><path d="M14 43 Q62 42 114 43 T216 43 T304 43" fill="none" stroke="#f3b85d" stroke-width="7" stroke-linecap="round"/><path d="M258 22 H305" stroke="#9bc1ca" stroke-width="1" opacity=".65"/><text x="305" y="17" text-anchor="end" font-size="11" fill="#cfe2e3">Oberfläche</text></svg></span><span class="line-card-bottom"><span class="line-card-copy"><strong>Floating</strong><small>Schwimmschnur · 0 cm/s</small><span class="line-card-explain">Ganze Schnur bleibt an der Oberfläche</span></span><span class="line-check" aria-hidden="true">✓</span></span></button><button class="line-option" data-line="intermediate" type="button" aria-pressed="false"><span class="line-illustration"><svg aria-hidden="true" viewBox="0 0 320 150" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"><rect width="320" height="150" rx="14" fill="#102b36"/><rect y="48" width="320" height="102" fill="#185572" fill-opacity=".58"/><path d="M0 47 Q17 44 34 47 T68 47 T102 47 T136 47 T170 47 T204 47 T238 47 T272 47 T320 47" fill="none" stroke="#70c9da" stroke-width="2" opacity=".87"/><path d="M0 74 H320 M0 110 H320" stroke="#87c0d0" stroke-width=".8" stroke-dasharray="4 9" opacity=".22"/><path d="M15 23 H46" stroke="#ebc77a" stroke-width="1.5" stroke-linecap="round" opacity=".55"/><path d="M14 56 Q73 60 128 77 T222 92 T304 109" fill="none" stroke="#f3b85d" stroke-width="7" stroke-linecap="round"/><path d="M277 65 v32 m-5 -6 5 6 5 -6" fill="none" stroke="#b5deec" stroke-width="2" stroke-linecap="round" opacity=".8"/></svg></span><span class="line-card-bottom"><span class="line-card-copy"><strong>Intermediate</strong><small>Langsam sinkend · ca. 2–5 cm/s</small><span class="line-card-explain">Die Schnur sinkt flach ins Wasser</span></span><span class="line-check" aria-hidden="true">✓</span></span></button><button class="line-option" data-line="sinktip" type="button" aria-pressed="false"><span class="line-illustration"><svg aria-hidden="true" viewBox="0 0 320 150" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"><rect width="320" height="150" rx="14" fill="#102b36"/><rect y="48" width="320" height="102" fill="#185572" fill-opacity=".58"/><path d="M0 47 Q17 44 34 47 T68 47 T102 47 T136 47 T170 47 T204 47 T238 47 T272 47 T320 47" fill="none" stroke="#70c9da" stroke-width="2" opacity=".87"/><path d="M0 74 H320 M0 110 H320" stroke="#87c0d0" stroke-width=".8" stroke-dasharray="4 9" opacity=".22"/><path d="M15 23 H46" stroke="#ebc77a" stroke-width="1.5" stroke-linecap="round" opacity=".55"/><path d="M14 43 Q90 42 179 43" fill="none" stroke="#f3b85d" stroke-width="7" stroke-linecap="round"/><circle cx="179" cy="43" r="3.7" fill="#f9e0aa"/><path d="M179 43 Q230 65 304 126" fill="none" stroke="#f18377" stroke-width="7" stroke-linecap="round"/><path d="M242 20 H303" stroke="#9bc1ca" stroke-width="1"/><text x="303" y="15" text-anchor="end" font-size="11" fill="#cfe2e3">nur Spitze</text></svg></span><span class="line-card-bottom"><span class="line-card-copy"><strong>Sinktip</strong><small>Sinkende Spitze · modellabhängig</small><span class="line-card-explain">Hauptschnur schwimmt, Spitze sinkt</span></span><span class="line-check" aria-hidden="true">✓</span></span></button><button class="line-option" data-line="sinking" type="button" aria-pressed="false"><span class="line-illustration"><svg aria-hidden="true" viewBox="0 0 320 150" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"><rect width="320" height="150" rx="14" fill="#102b36"/><rect y="48" width="320" height="102" fill="#185572" fill-opacity=".58"/><path d="M0 47 Q17 44 34 47 T68 47 T102 47 T136 47 T170 47 T204 47 T238 47 T272 47 T320 47" fill="none" stroke="#70c9da" stroke-width="2" opacity=".87"/><path d="M0 74 H320 M0 110 H320" stroke="#87c0d0" stroke-width=".8" stroke-dasharray="4 9" opacity=".22"/><path d="M15 23 H46" stroke="#ebc77a" stroke-width="1.5" stroke-linecap="round" opacity=".55"/><path d="M14 55 Q74 68 143 89 T304 137" fill="none" stroke="#f3b85d" stroke-width="7" stroke-linecap="round"/><path d="M267 68 v38 m-5 -6 5 6 5 -6" fill="none" stroke="#b5deec" stroke-width="2" stroke-linecap="round" opacity=".8"/></svg></span><span class="line-card-bottom"><span class="line-card-copy"><strong>Sinking</strong><small>Sinkende Schnur · modellabhängig</small><span class="line-card-explain">Die ganze Schnur sinkt in die Tiefe</span></span><span class="line-check" aria-hidden="true">✓</span></span></button></div><p class="hint line-hint">Grafiken zeigen den grundsätzlichen Schnurverlauf, nicht eine exakt erreichbare Tiefe. Die Sinkrate wird bei sinkenden Schnüren nach Herstellerangabe eingetragen.</p>
+<div id="typeHelp" class="desc"></div>
+<div class="grid2" id="gearSelections">
+<div><label class="label" for="lineWT">Flugschnurklasse (WT)</label><select id="lineWT" aria-label="Flugschnurklasse"><option value="">Nicht angegeben</option><option value="2">#2</option><option value="3">#3</option><option value="4">#4</option><option value="5" selected>#5</option><option value="6">#6</option><option value="7">#7</option><option value="8">#8</option><option value="9">#9</option><option value="10">#10</option></select></div>
+<div><label class="label" for="hookSize">Hakengrösse</label><select id="hookSize" aria-label="Hakengrösse"></select></div>
+</div><p class="hint">Die Flugschnurklasse ist Teil deiner Ausrüstung. Sie beeinflusst die Vorfachlänge nicht direkt. Die Hakengrösse fliesst in die Tippet-Empfehlung ein. Rutenlänge und Rutenklasse müssen dafür nicht eingegeben werden.</p>
+</section>
+<section class="card alt"><div class="flex"><h2>Weitere Einflussfaktoren</h2><span class="chip">aus Rubrik 1 + 2</span></div>
+<div id="readonlyContext"></div>
+<details id="testDetails"><summary>Werte für diesen Test verändern</summary>
+<p class="desc">In der fertigen V4 werden diese Werte aus «Am Wasser» und «Fliegen & Führung» übernommen. Nur hier im Einzelprototyp kannst du sie zum Testen ändern.</p>
+<div class="grid2">
+<div><label class="label" for="flyType">Fliegenart</label><select id="flyType"><option value="dry">Trockenfliege</option><option value="emerger">Emerger/Aufsteiger</option><option value="nymph">Nymphe</option><option value="wet">Nassfliege</option><option value="streamer">Streamer</option><option value="buzzer">Buzzer/Zuckmückenpuppe</option><option value="terrestrial">Landinsekt</option><option value="scud">Bachflohkrebs/Scud</option></select></div>
+
+<div><label class="label" for="waterType">Gewässer</label><select id="waterType"><option value="lake">See/Bergsee</option><option value="river">Fluss</option><option value="creek">Kleiner Bach</option></select></div>
+<div><label class="label" for="clarity">Wassersicht</label><select id="clarity"><option value="normal">Normal/klar</option><option value="clear">Sehr klar</option><option value="slightly">Leicht trüb</option><option value="murky">Stark trüb</option></select></div>
+<div><label class="label" for="fish">Zielfisch (optional)</label><select id="fish"><option value="none">Nicht gewählt</option><option value="bachforelle">Bachforelle</option><option value="regenbogen">Regenbogenforelle</option><option value="aesche">Äsche</option><option value="egli">Egli</option><option value="hecht">Hecht</option><option value="zander">Zander</option><option value="felchen">Felchen</option><option value="seeforelle">Seeforelle</option><option value="saibling">Seesaibling</option><option value="namaycush">Namaycush</option></select></div>
+</div></details></section>
+<section class="card"><div class="flex"><h2>2. Dein empfohlenes Vorfach</h2><span class="chip" id="recContext">—</span></div><p class="desc" id="why"></p><div class="grid3"><div><small>Vorfach</small><strong id="leaderVal">—</strong><small id="leaderText">—</small></div><div><small>Tippet</small><strong id="tippetVal">—</strong><small id="tippetText">—</small></div><div><small>Gesamt</small><strong id="totalVal">—</strong><small>Vorfach + Tippet</small></div></div><svg class="rigline" viewBox="0 0 360 70" role="img" aria-label="Schematische Montage von Fliegenschnur über Vorfach und Tippet bis zur Fliege"><path d="M5 28 L68 28" stroke="#e8b972" stroke-width="8" stroke-linecap="round"/><path d="M68 28 Q140 28 220 28" stroke="#73c7d6" stroke-width="5" stroke-linecap="round"/><path d="M220 28 L329 28" id="drawTippet" stroke="#d8f0b6" stroke-width="2.5" stroke-linecap="round"/><path d="M329 28 Q343 18 350 30 Q343 42 338 30" stroke="#f1be71" stroke-width="2.5" fill="none"/><text class="line-label" x="3" y="54">Flugschnur</text><text class="line-label" x="119" y="54">Vorfach</text><text class="line-label" x="250" y="54">Tippet</text></svg>
+<div class="subtitle" id="materialText"></div><div id="flySpec"></div><p class="note" id="whyMore"></p>
+<button class="btn" id="copyToMine" type="button">Montage in Prüffelder übernehmen</button>
+</section>
+<section class="card"><h2>3. Montageprüfung</h2><p class="desc">Prüfung von Vorfachaufbau, Tippet und Zielfisch. Die Gerätekompatibilität wird unabhängig davon beurteilt.</p><div id="warnings"></div><hr class="divider"><details id="ownDetails"><summary>Meine vorhandene Montage überprüfen</summary><p class="desc">Hier kannst du von der Empfehlung abweichen und deine tatsächlichen Werte eingeben.</p><div class="grid2"><div><label class="label" for="ownLeader">Vorfach in Metern</label><input type="number" step="0.1" min="0" max="12" id="ownLeader" value="2.4"></div><div><label class="label" for="ownTippet">Tippet in Zentimetern</label><input type="number" step="5" min="0" max="600" id="ownTippet" value="60"></div><div><label class="label" for="ownX">Tippetstärke</label><select id="ownX"></select></div><div><label class="label" for="ownMaterial">Tippetmaterial</label><select id="ownMaterial"><option value="nylon">Nylon/Mono</option><option value="fluoro">Fluorocarbon</option><option value="wire">Bissfestes Stahl/Titan</option></select></div></div><div class="subtitle" id="ownTotal"></div><div id="ownWarnings"></div></details></section>
+<section class="card"><h2>4. Hakengrössen & X-System</h2><div id="hookRange"></div><p class="hint">Die Hakennummer ist nicht die X-Stärke: Je <b>grösser</b> die gewöhnliche Hakennummer, desto <b>kleiner</b> der Haken. Nach #1 folgen die grösseren Grössen 1/0, 2/0 usw. Die tatsächlichen Masse variieren je nach Hakenmodell.</p><div class="knotstrip"><span><b>7X</b><br>0,10 mm</span><span><b>6X</b><br>0,13 mm</span><span><b>5X</b><br>0,15 mm</span><span><b>4X</b><br>0,18 mm</span><span><b>3X</b><br>0,20 mm</span></div><div class="knotstrip"><span><b>2X</b><br>0,23 mm</span><span><b>1X</b><br>0,25 mm</span><span><b>0X</b><br>0,28 mm</span><span><b>&gt;0X</b><br>in mm</span><span><b>Hecht</b><br>Draht/Titan</span></div><p class="hint">Näherungswerte der Durchmesser, kein Versprechen über Tragkraft oder Verbindungsfestigkeit.</p></section>
+</main>
+<footer><p class="footerline">Dies ist eine eigenständige, offline nutzbare Testoberfläche. Keine Veröffentlichung, kein Zugriff auf GitHub, keine Netzverbindung erforderlich. Der gewählte Schnurtyp wird nach Möglichkeit nur lokal im Browser gespeichert. Schnurtyp, Flugschnurklasse und Hakengrösse sind direkt auswählbar. Rutenlänge und Rutenklasse bleiben für die Vorfachberechnung ausgeblendet.</p><p>Fachliche Referenz: <a href="https://howtoflyfish.orvis.com/how-to-articles/tippet-chart/" target="_blank" rel="noopener">Orvis Tippet-Tabelle</a>, <a href="https://farbank.com/products/rio-mainstream" target="_blank" rel="noopener">RIO Sinkraten</a>, <a href="https://scientificanglers.com/product/sonar-stillwater-seamless-density/" target="_blank" rel="noopener">Scientific Anglers</a>. Längen und Auswahlregeln sind Entwurfsheuristiken und müssen am Gewässer angepasst werden.</p></footer>
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const XMM = {'7X':.102,'6X':.127,'5X':.152,'4X':.178,'3X':.203,'2X':.229,'1X':.254,'0X':.279};
+const PRESETS={
+ dry:{title:'Trockenfliege',leader:2.4,tippet:.7,hook:['#10','#20'],defaultHook:'#16',material:'nylon',why:'Delikate Oberflächenpräsentation; konisches Nylon als unauffälliger Übergang.'},
+ emerger:{title:'Emerger',leader:2.4,tippet:.7,hook:['#12','#20'],defaultHook:'#16',material:'nylon',why:'Feine Präsentation im Oberflächenfilm, ohne die Fliege zu stark nach unten zu ziehen.'},
+ nymph:{title:'Nymphe',leader:2.2,tippet:.55,hook:['#10','#18'],defaultHook:'#14',material:'fluoro',why:'Konisches Vorfach mit flexiblem Tippet; Gewicht und Strömung bestimmen die reale Sinkphase.'},
+ wet:{title:'Nassfliege',leader:2.2,tippet:.55,hook:['#10','#16'],defaultHook:'#12',material:'fluoro',why:'Kontrollierte Führung knapp unter der Oberfläche und gute Verbindung zum Köder.'},
+ streamer:{title:'Streamer',leader:1.5,tippet:.4,hook:['#10','4/0'],defaultHook:'#6',material:'nylon',why:'Kürzerer, kräftiger Aufbau überträgt Wurfenergie auf voluminöse Fliegen.'},
+ buzzer:{title:'Buzzer',leader:2.5,tippet:.75,hook:['#12','#20'],defaultHook:'#16',material:'fluoro',why:'Langsame, natürliche Präsentation von Zuckmückenpuppen mit ausreichend Distanz zur Schwimmschnur.'},
+ terrestrial:{title:'Landinsekt',leader:2.3,tippet:.65,hook:['#8','#18'],defaultHook:'#12',material:'nylon',why:'Oberflächenpräsentation; Vorfach passend zum Volumen der Käfer- oder Grashüpferimitation.'},
+ scud:{title:'Bachflohkrebs',leader:2.2,tippet:.55,hook:['#12','#18'],defaultHook:'#14',material:'fluoro',why:'Unauffällige Unterwasserpräsentation nahe geeigneter Deckung/Struktur.'}
+};
+const TYPES={
+ floating:'Schwimmt an der Oberfläche (0 cm/s). Ideal für Trockenfliegen; sinkende Fliegen sind dennoch mit geeignetem Vorfach möglich.',
+ intermediate:'Langsam sinkend. Typisch etwa 2–5 cm/s; Produktangaben können abweichen. Nicht mit einer fixen Fischtiefe gleichsetzen.',
+ sinktip:'Schwimmender oder anders dichter Hauptteil mit sinkender Spitze. Sinkrate ausschliesslich modellbezogen erfassen.',
+ sinking:'Sinkender Schnurkörper. Type-/IPS-Wert des konkreten Modells erfassen; Tiefe ist zusätzlich von Zeit, Strömung und Führung abhängig.'
+};
+const hooks=[...Array.from({length:20},(_,i)=>'#'+(20-i)),'1/0','2/0','3/0','4/0'];
+const $fields=['waterType','clarity','flyType','hookSize','lineWT','fish','ownLeader','ownTippet','ownX','ownMaterial'];
+let currentLine='floating'; let latest=null; let ownTouched=false;
+function fmt(n,d=2){return Number(n).toFixed(d).replace('.',',')}
+function prettyX(x){return x?`${x} · ca. ${fmt(XMM[x])} mm`:'kein X-System'}
+function hookInt(v){return v.includes('/0')? -parseInt(v,10):parseInt(v.slice(1),10)}
+function chooseX(hook,fly){const n=hookInt(hook); if(n<=0)return null;let v=n>=20?6:n>=18?6:n>=14?5:n>=12?4:n>=8?3:n>=6?2:n>=4?1:0;if(fly==='streamer')v=Math.min(v,3);return `${v}X`}
+function readContext(){return {waterType:$('waterType').value,clarity:$('clarity').value,fly:$('flyType').value,hook:$('hookSize').value,fish:$('fish').value,depth:'unknown',weighted:false,line:currentLine,rodWT:'',lineWT:$('lineWT').value,leaderMode:'auto',sinkRate:null};}
+function notice(kind,title,description){return {kind,title,description}}
+function calculateRig(c){
+ const p=PRESETS[c.fly];let L=p.leader,T=p.tippet, material=p.material==='nylon'?'Konisches Nylonvorfach':'Konisches Mono-/Fluorocarbon-Vorfach';
+ let tippetMaterial=p.material==='nylon'?'Nylon/Mono':'Fluorocarbon';let x=chooseX(c.hook,c.fly);let mm=x?XMM[x]:.35; let msgs=[];
+ if(c.waterType==='creek'){L=Math.max(.75,L-.4);T=Math.max(.3,T-.1)}
+ if(c.waterType==='lake'&&['dry','emerger','buzzer'].includes(c.fly)){L+=.2;T+=.1}
+ if(c.clarity==='clear'){
+   if(['dry','emerger','buzzer','nymph'].includes(c.fly)){L+=.3;T+=.2}
+   if(x&&['dry','emerger','buzzer'].includes(c.fly)){x=`${Math.min(7,parseInt(x,10)+1)}X`;mm=XMM[x]}
+ } else if(c.clarity==='murky'){
+   if(['dry','emerger','buzzer','nymph'].includes(c.fly)){L=Math.max(1.2,L-.2);T=Math.max(.35,T-.15)}
+   if(x){x=`${Math.max(0,parseInt(x,10)-1)}X`;mm=XMM[x]}
+ }
+ if(c.fly==='streamer'){
+   if(['intermediate','sinktip','sinking'].includes(c.line)){L=1.1;T=.35;material='Kurzes kräftiges Mono-/Fluorocarbon-Vorfach'}
+   if(c.line==='sinking'){L=.8;T=.3}
+   if(c.hook.includes('/0')||c.hook==='#1'){x=null;mm=.35; tippetMaterial='Kräftiges Mono/Fluoro (mm-Angabe)'}
+ }
+ if(c.fish==='hecht'){
+   L=['sinking','sinktip'].includes(c.line)?.9:1.2;
+   T=.35; x=null;mm=null; material='Kräftiges Mono (Hauptvorfach)';tippetMaterial='Bissfestes Stahl-/Titan-Endstück';
+   msgs.push(notice('ok','Bissschutz vorgesehen','Hechtmontage endet in einem bissfesten Stahl- oder Titan-Endstück, nicht in normalem Mono-/Fluorocarbon-Tippet.'));
+   if(c.fly!=='streamer'&&c.fly!=='terrestrial')msgs.push(notice('warn','Zielfisch/Fliege prüfen','Für gezieltes Hechtfischen sind grössere geeignete Muster und tragfähige Ausrüstung üblicher.'));
+ }
+ if(c.leaderMode==='poly'){
+    L=1.5;T=Math.min(T,.55);material='Sinkender Polyleader (5 ft), Hersteller-Sinkrate prüfen';
+    if(['dry','terrestrial','emerger'].includes(c.fly))msgs.push(notice('warn','Polyleader gegen Oberflächenführung','Ein sinkender Polyleader kann eine natürlich aufliegende Trockenfliege oder Emerger-Präsentation beeinträchtigen.'));
+    if(c.line==='sinking')msgs.push(notice('warn','Polyleader meist entbehrlich','Die Sinkschnur sinkt bereits; ein zusätzlicher Sinkleader muss zur konkreten Schnur passen.'));
+ } else if(c.leaderMode==='mono'){
+   material='Gerades Mono-/Fluorocarbon-Vorfach';
+   if(['dry','emerger','terrestrial'].includes(c.fly))msgs.push(notice('warn','Wurfübertragung kontrollieren','Gerades Mono kann bei sehr feiner Trockenfliegenpräsentation schlechter abrollen als ein passendes konisches Vorfach.'));
+ } else if(c.leaderMode==='taper'){
+    material='Konisches Mono-/Nylonvorfach';
+ }
+ if((c.line==='intermediate'||c.line==='sinktip'||c.line==='sinking')&&['dry','terrestrial'].includes(c.fly))msgs.push(notice('warn','Schwimmschnur empfohlen','Eine sinkende Schnur macht eine natürliche Oberflächenpräsentation deutlich schwieriger. Floating ist dafür normalerweise besser.'));
+ if(c.line==='floating' && ['streamer','nymph','scud','buzzer'].includes(c.fly) && ['3','6','10','20'].includes(c.depth))msgs.push(notice('warn','Tiefenzone schwer erreichbar','Eine schwimmende Schnur ist für diese tiefe Zielzone oft wenig effizient. Sinktip/Sinking oder ein passender Sinkleader kann helfen; kein verlässlicher Meterwert möglich.'));
+ if(c.line==='intermediate'&&['6','10','20'].includes(c.depth))msgs.push(notice('warn','Intermediate für Zielzone begrenzt','Für tiefere Zonen prüfen, ob längere Absinkzeit oder eine schneller sinkende Schnur nötig ist. Sinkrate allein gibt keine tatsächliche Ködertiefe vor.'));
+ if(c.line==='sinktip'&&['10','20'].includes(c.depth))msgs.push(notice('warn','Tiefe Sinktip-Präsentation prüfen','Bei sehr tiefen Suchzonen kann eine vollständig sinkende Schnur geeigneter sein als eine kurze Sinkspitze.'));
+ if(c.rodWT&&c.lineWT){const d=Math.abs(Number(c.rodWT)-Number(c.lineWT));if(d>=2)msgs.push(notice('error','Wurfklasse deutlich abweichend',`Rute #${c.rodWT} und Schnur #${c.lineWT} liegen ${d} Klassen auseinander. Herstellerangaben und Spezialtaper prüfen; nicht pauschal als kompatibel behandeln.`));else if(d===1)msgs.push(notice('warn','Wurfklassen nur bedingt passend',`Rute #${c.rodWT}, Schnur #${c.lineWT}: eine Klasse Unterschied. Je nach Rute und Schnurprofil möglich, aber nicht automatisch ideal.`));else msgs.push(notice('ok','Rute und Schnurklasse stimmen überein',`Rute und Fliegenschnur sind beide mit #${c.rodWT} gekennzeichnet. Das tatsächliche Kopfgewicht/Spezialprofil kann dennoch abweichen.`));}
+ if(c.fish==='hecht'&&c.rodWT&&Number(c.rodWT)<8)msgs.push(notice('error','Für gezieltes Hechtfischen wenig geeignet','Mit grossen Hechtstreamern ist eine kräftigere Ruten-/Schnurkombination (oft etwa #8–10) zweckmässiger; die Mustergrösse ist entscheidend.'));
+ if(c.fly==='streamer'&&c.weighted&&c.rodWT&&Number(c.rodWT)<=4)msgs.push(notice('warn','Schwerer Streamer an leichter Rute','Schwere/voluminöse Streamer sind an leichten Ruten schwer kontrolliert zu werfen. Grössere Wurfschlaufe, vorsichtiges Werfen oder anderes Gerät.'));
+ if(c.sinkRate!==null && (c.sinkRate<=0||c.sinkRate>12) && c.line!=='floating')msgs.push(notice('warn','Sinkrate prüfen','Ungültige oder sehr ungewöhnliche Sinkrate eingetragen; Wert und Einheit auf der Verpackung kontrollieren.'));
+ if(c.fish==='hecht'&&c.hook==='#18')msgs.push(notice('warn','Haken für Hecht ungeeignet','Sehr kleine Haken sind für übliche Hechtstreamer nicht geeignet.'));
+ const hs=hookInt(c.hook),a=hookInt(p.hook[0]),b=hookInt(p.hook[1]);
+ if(hs<Math.min(a,b)||hs>Math.max(a,b))msgs.push(notice('warn','Hakengrösse ausserhalb des typischen Bereichs',`${p.title}: etwa ${p.hook[0]} bis ${p.hook[1]} als Startbereich. Sondermuster sind möglich.`));
+ L=Number(L.toFixed(2));T=Number(T.toFixed(2));
+ return {leaderM:L,tippetM:T,totalM:Number((L+T).toFixed(2)),leaderType:material,tippetMaterial,x,mm,hookRange:p.hook.join(' bis '),p,msgs};
+}
+function checkOwn(c,r){const L=Number($('ownLeader').value),T=Number($('ownTippet').value)/100, x=$('ownX').value,mat=$('ownMaterial').value;let arr=[];
+ if(!Number.isFinite(L)||!Number.isFinite(T)||L<=0||T<0||L>12||T>6)arr.push(notice('error','Längenangaben kontrollieren','Vorfach muss positiv sein. Tippet darf nicht negativ sein.'));
+ if(c.fish==='hecht'&&mat!=='wire')arr.push(notice('error','Hecht: Bissschutz fehlt','Nylon/Fluorocarbon im üblichen Tippetbereich bietet keinen verlässlichen Schutz gegen Hechtzähne. Stahl/Titan vor dem Köder ist erforderlich.'));
+ if(c.fish!=='hecht'&&mat==='wire')arr.push(notice('warn','Bissschutz nur bei Bedarf','Ein Stahl-/Titanendstück ist für viele feine Fliegen unnötig und beeinträchtigt die Präsentation.'));
+ if(c.fish!=='hecht'&&mat!=='wire'&&x){const ideal=Number((r.x||'0X')[0]),actual=Number(x[0]);if(x.endsWith('X')&&Math.abs(actual-ideal)>=3)arr.push(notice('warn','Tippetstärke deutlich anders',`Du verwendest ${x}, als Ausgangswert wird ${r.x||'kräftiges Mono ab etwa 0,35 mm'} vorgeschlagen. Hakengrösse, Wurfbarkeit und Fischgrösse prüfen.`));}
+ if(c.fish!=='hecht' && mat!=='wire' && r.mm && !r.x && (x.endsWith('X')?XMM[x]:Number(x)) < r.mm-.04)arr.push(notice('warn','Tippet für grosses Muster eher fein',`Das gewählte Tippet ist dünner als der kräftige Richtwert von etwa ${fmt(r.mm)} mm. Wurfbarkeit und Tragkraft kontrollieren.`));
+ if(Math.abs(L+T-r.totalM)>1.2)arr.push(notice('warn','Montagelänge stark abweichend',`Deine Gesamtlänge ist ${fmt(L+T)} m; der aktuelle Startwert beträgt ${fmt(r.totalM)} m. Kann sinnvoll sein, braucht aber Prüfung der Führung und Wurfbarkeit.`));
+ if(arr.length===0)arr.push(notice('ok','Keine offensichtlichen Abweichungen','Nach diesen Basisregeln kein grober Fehler erkannt. Tragkraft, Festigkeit der Verbindungen und lokale Vorschriften zusätzlich prüfen.'));
+ return {totalM:L+T,msgs:arr};
+}
+function elMsg(m){const d=document.createElement('div');d.className=`msg ${m.kind}`;const ch=m.kind==='error'?'!':m.kind==='warn'?'△':'✓';const mark=document.createElement('span');mark.className='mark';mark.textContent=ch;const box=document.createElement('div');const strong=document.createElement('strong');strong.textContent=m.title;const p=document.createElement('p');p.textContent=m.description;box.append(strong,p);d.append(mark,box);return d;}
+function update(){const c=readContext(),r=calculateRig(c);latest=r;
+ const lineBtns=[...document.querySelectorAll('#lineBtns button')];lineBtns.forEach(b=>{b.classList.toggle('active',b.dataset.line===c.line);b.setAttribute('aria-pressed',String(b.dataset.line===c.line));});$('typeHelp').textContent=TYPES[c.line];
+ const prettyLine={floating:'Floating',intermediate:'Intermediate',sinktip:'Sinktip',sinking:'Sinking'}[c.line];$('readonlyContext').textContent=`${({lake:'See/Bergsee',river:'Fluss',creek:'Kleiner Bach'})[c.waterType]} · ${({normal:'normal/klar',clear:'sehr klar',slightly:'leicht trüb',murky:'stark trüb'})[c.clarity]} · ${r.p.title} ${c.hook} · Schnurklasse ${c.lineWT?'#'+c.lineWT:'nicht gewählt'} · ${$('fish').selectedOptions[0].textContent}`;
+ $('recContext').textContent=r.p.title+' · '+prettyLine+' · Schnur '+(c.lineWT?'#'+c.lineWT:'—');
+ $('leaderVal').textContent=`${fmt(r.leaderM)} m`;$('leaderText').textContent='Hauptvorfach';$('tippetVal').textContent=`${Math.round(r.tippetM*100)} cm`;$('tippetText').textContent=r.x||'bissfest / kräftig';$('totalVal').textContent=`${fmt(r.totalM)} m`;
+ $('materialText').textContent=r.leaderType;$('flySpec').textContent=`Tippet: ${r.tippetMaterial} · ${r.x?prettyX(r.x):r.mm?`mindestens ca. ${fmt(r.mm)} mm (je nach Fliege)`:'Stahl/Titan – geeignete Tragkraft wählen'} · Haken ${c.hook}`;
+ $('why').textContent=r.p.why;$('whyMore').textContent=c.fish==='hecht'?'Bei Hecht zählt das bissfeste Endstück zum hier ausgewiesenen Tippet. Die Gesamtlänge enthält deshalb den Bissschutz. Die Verbindung richtet sich nach dem gewählten Stahl-/Titanprodukt.':'Die Gesamtlänge ist die Summe aus Hauptvorfach und zusätzlich angehängtem Tippet. Sinkrate, Strömung und Ködergewicht ergeben keine exakt vorhersagbare Tiefe.';
+ $('drawTippet').setAttribute('stroke',c.fish==='hecht'?'#f9ae87':'#d8f0b6');
+ const warn=$('warnings');warn.textContent='';for(const m of r.msgs)warn.append(elMsg(m));if(!r.msgs.some(x=>x.kind!=='ok'))warn.append(elMsg(notice('ok','Montage als Ausgangspunkt stimmig','Keine grundsätzliche Unvereinbarkeit erkannt. Vor Ort an Fischgrösse, Strömung, Wurf und Fliegenmuster anpassen.')));
+ $('hookRange').textContent=`${r.p.title}: typische Hakengrössen ${r.hookRange}. Gewählter Haken ${c.hook}.`;
+ updateOwn(); saveGear();
+}
+function updateOwn(){if(!latest)return;$('ownX').disabled=$('ownMaterial').value==='wire';const r=checkOwn(readContext(),latest);$('ownTotal').textContent=`Deine Gesamtlänge: ${Number.isFinite(r.totalM)?fmt(r.totalM):'—'} m`;$('ownWarnings').textContent='';r.msgs.forEach(m=>$('ownWarnings').append(elMsg(m)));}
+function setHookDefault(){ $('hookSize').value=PRESETS[$('flyType').value].defaultHook; update(); }
+function applyRecommendation(){if(!latest)return;$('ownLeader').value=latest.leaderM;$('ownTippet').value=Math.round(latest.tippetM*100);$('ownX').value=latest.x||(latest.mm?'0.35':'0X');$('ownMaterial').value=latest.tippetMaterial.includes('Stahl')?'wire':latest.tippetMaterial.includes('Fluoro')?'fluoro':'nylon';$('ownDetails').open=true;updateOwn();$('ownDetails').scrollIntoView({behavior:'smooth',block:'start'});}
+function saveGear(){try{localStorage.setItem('fgv4-r4-leader-line',currentLine);localStorage.setItem('fgv4-r4-line-class',$('lineWT').value);}catch(e){}}
+function init(){
+ hooks.forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=v;$('hookSize').append(o)});
+ for(const [x,mm] of Object.entries(XMM)){const o=document.createElement('option');o.value=x;o.textContent=`${x} ≈ ${fmt(mm)} mm`;$('ownX').append(o)}for(const mm of [0.30,0.35,0.40,0.45,0.50]){const o=document.createElement('option');o.value=mm.toFixed(2);o.textContent=`${fmt(mm)} mm (kräftiges Mono)`;$('ownX').append(o)}
+ $('flyType').value='nymph';$('hookSize').value='#14';$('ownX').value='5X';
+ try{const l=localStorage.getItem('fgv4-r4-leader-line');if(l&&TYPES[l])currentLine=l;const wt=localStorage.getItem('fgv4-r4-line-class');if(wt&&['2','3','4','5','6','7','8','9','10'].includes(wt))$('lineWT').value=wt;}catch(e){}
+ document.querySelectorAll('#lineBtns button').forEach(b=>b.addEventListener('click',()=>{currentLine=b.dataset.line;update()}));
+ $fields.forEach(id=>$(id).addEventListener('change',id==='flyType'?setHookDefault:id.startsWith('own')?updateOwn:update));
+ ['ownLeader','ownTippet'].forEach(id=>$(id).addEventListener('input',updateOwn));
+ $('copyToMine').addEventListener('click',applyRecommendation);
+ update();
+}
+init();
+</script>
+
+<script>
+window.addEventListener('message',e=>{
+ const d=e.data||{};if(d.type!=='FG41_MONTAGE')return;
+ try{
+  currentLine=d.line||'floating';
+  const set=(id,value)=>{const x=document.getElementById(id);if(x&&[...x.options].some(o=>o.value===value))x.value=value};
+  const fm={trocken:'dry',nymphe:'nymph',emerger:'emerger',nass:'wet',streamer:'streamer',buzzer:'buzzer',land:'terrestrial',scud:'scud'};
+  set('flyType',fm[d.fly]||'nymph');
+  set('waterType',d.water==='see'?'lake':d.water==='bach'?'creek':'river');
+  set('clarity',d.clarity==='sehrklar'?'clear':d.clarity==='trueb'?'murky':d.clarity==='leicht'?'slightly':'normal');
+  set('lineWT',d.wt||'');set('fish',d.target||'none');
+  update();
+ }catch(err){console.warn('V4.1 Montagekontext:',err)}
+});
+</script>
+</body></html>
