@@ -1,0 +1,19 @@
+{
+  "name": "FliegenGuide V4.1",
+  "short_name": "FliegenGuide",
+  "description": "Fliegenfischen: Am Wasser, Fliegen, Fischarten, Montage und Wissen",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#edf2f0",
+  "theme_color": "#0b303a",
+  "lang": "de-CH",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
